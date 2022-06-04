@@ -16,17 +16,13 @@ IniRead, old_state, vars.ini, MFEReload, light_theme
 
 Loop {
     RegRead, current_state, HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize, AppsUseLightTheme
-    MsgBox %old_state%, %current_state%
     If (current_state != old_state) {
         Break
     }
 }
 
 if (old_state != current_state) {
-    MsgBox %old_state%, %current_state%
     ; Wait for firefox
-    ;WinWaitActive, ahk_exe firefox.exe
-    ;Sleep, 2000
     FFWait()
 
     ; Update MFE config to trigger MFE reload
