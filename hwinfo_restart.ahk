@@ -1,4 +1,5 @@
 ﻿#Requires AutoHotkey v2.0
+#NoTrayIcon
 
 Sleep 21600000 ; 6 hours
 ProcessClose "hwinfo64.exe"
