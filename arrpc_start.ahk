@@ -21,7 +21,10 @@ if (FileExist(DiscordPath "\Discord.exe") && ProcessExist("Discord.exe")) {
     Run "Discord.exe", DiscordPath
 }
 
+ArrpcPath := EnvGet("Userprofile") "\arrpc"
 If (ProcessExist("node.exe"))
-    ProcessClose "node.exe"
+    path := ProcessGetPath("node.exe")
+    if (InStr(path, ArrpcPath))
+        ProcessClose "node.exe"
 
-Run "node src", "C:\Users\Maicol\arrpc", "Hide"
+Run "node src", ArrpcPath, "Hide"
